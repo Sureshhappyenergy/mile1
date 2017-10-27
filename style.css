@@ -1148,6 +1148,20 @@ img.alignright,
 	display: none;
 }
 
+/*========= Front page Soliloquy slider ============*/
+
+.front-page-1 .wrap {
+	max-width: 100%;
+}
+
+.front-page-1 .flexible-widgets {
+	padding: 0 0 120px;
+}
+
+.front-page-1 .soliloquy-container * {
+	width: 100%;
+}
+
 
 /* # Skip Links
 ---------------------------------------------------------------------------------------------------- */

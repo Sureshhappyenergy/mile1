@@ -304,32 +304,3 @@ genesis_register_sidebar( array(
 	'name'        => __( 'Front Page 13', 'aspire' ),
 	'description' => __( 'This is the front page 13 section.', 'aspire' ),
 ) );
-
-
-// * backstretch Script
-add_action( 'wp_enqueue_scripts', 'custom_enqueue_scripts' );
-function custom_enqueue_scripts() {
-
-	//* Load scripts only if custom background is being used
-	if ( ! get_background_image() )
-		return;
-
-	wp_enqueue_script( 'custom-backstretch', get_bloginfo( 'stylesheet_directory' ) . '/js/backstretch.js', array( 'jquery' ), '1.0.0' );
-	wp_enqueue_script( 'custom-backstretch-set', get_bloginfo('stylesheet_directory').'/js/backstretch-set.js' , array( 'jquery', 'custom-backstretch' ), '1.0.0' );
-
-	wp_localize_script( 'custom-backstretch-set', 'BackStretchImg', array( 'src' => get_background_image() ) );
-
-}
-
-//* Add custom background callback for background color
-function custom_background_callback() {
-
-	if ( ! get_background_color() )
-		return;
-
-	printf( '<style>body { background-color: #%s; }</style>' . "\n", get_background_color() );
-
-}
-
-//* Add support for custom background
-add_theme_support( 'custom-background', array( 'wp-head-callback' => 'custom_background_callback' ) );
